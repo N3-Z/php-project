@@ -6,5 +6,6 @@ use Controllers\UserController;
 $userController = new UserController();
 $res = $userController->getAllUser();
 
+print_r($res);
 
 ?>
