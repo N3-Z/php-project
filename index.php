@@ -1,11 +1,17 @@
+<link rel="stylesheet" href="./Public/css/style.css">
+
+
 <?php
-namespace main;
 include dirname(__FILE__)."/Controllers/UserController.php";
 use Controllers\UserController;
 
-$userController = new UserController();
-$res = $userController->getAllUser();
+include dirname(__FILE__)."/Views/Header.php";
 
-print_r($res);
+
+// $userController = new UserController();
+// $res = $userController->getAllUser();
+
+// print_r($res);
+
 
 ?>

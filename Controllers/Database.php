@@ -2,46 +2,36 @@
     namespace Controllers;
     include dirname(__DIR__)."/Config/DB.php";
     use Config\DB;
-use mysqli;
 
-class Database {
-        private $con;
-        
+    class Database {
+        private $_con;
+        private static $_instance;
 
-        public function __init(){
+        //singleton
+        public static function getInstance(){
+            if(!self::$_instance){
+                self::$_instance = new self();
+            }
+            return self::$_instance;
+        }
+
+        private function __construct(){
             $config = new DB();
-            $this->con = mysqli_init();
-            $this->con->options(MYSQLI_OPT_CONNECT_TIMEOUT,3);
-            $this->con->real_connect(
+            $this->_con = mysqli_connect(
                 $config->db['host'],
                 $config->db['user'],
                 $config->db['password'],
                 $config->db['database'],
                 $config->db['port'],
             );
+            if(mysqli_connect_error()){
+                die("Error: ".mysqli_connect_error());
+            }
         }
 
         public function getConnection(){
-            return $this->con;
+            return $this->_con;
         }
-
-        // public function getConnection(){
-            // $config = new DB();
-            // $con = mysqli_connect(
-            //     $config->db['host'],
-            //     $config->db['user'],
-            //     $config->db['password'],
-            //     $config->db['database'],
-            //     $config->db['port'],
-            // );
-            
-            // if($con->connect_error){
-            //     die("Connection error: " + $con->connect_error);
-            // }
-            
-            // return $con;
-        // }
-
     }
 
 ?>
