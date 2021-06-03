@@ -1,0 +1,6 @@
+feature admin
+- liat list user (read)
+- create new user (create)
+- view user transaction (read,update,delete)
+- edit profile 
+    - change name, profile picture, password

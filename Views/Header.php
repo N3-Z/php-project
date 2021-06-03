@@ -1,6 +1,7 @@
+<!-- header -->
 <nav>
     <div><a href="">Home</a></div>
-    <div><a href="">Transaction</a></div>
-    <div><a href="">Shop</a></div>
-    <div><a href="">Profile</a></div>
+    <div><a href="">Product</a></div>
+    <div><a href="">Register</a></div>
+    <div><a href="">About</a></div>
 </nav>
